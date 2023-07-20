@@ -1,0 +1,203 @@
+openapi: 3.0.3
+info:
+  title: "Final API"
+  description: "Final API"
+  version: "1.0.0"
+servers:
+  - url: "https://localhost:6060"
+paths:
+  /api/paid/{id}:
+    get:
+      summary: "GET api/paid/{id}"
+      operationId: "getPaidById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "number"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+  /api/paid/:
+    get:
+      summary: "GET api/paid/"
+      operationId: "getAllPaid"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        group:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            name:
+                              type: string
+                        manager:
+                          type: string
+                        comments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              comment:
+                                type: string
+                              created_at:
+                                type: string
+                                format: date-time
+                        alreadyPaid:
+                          type: integer
+                        course:
+                          type: string
+                        name:
+                          type: string
+                        surname:
+                          type: string
+                        email:
+                          type: string
+                          format: email
+                        phone:
+                          type: string
+                        age:
+                          type: integer
+                        course_format:
+                          type: string
+                        course_type:
+                          type: string
+                        created_at:
+                          type: string
+                          format: date-time
+                        utm:
+                          type: string
+                        msg:
+                          type: string
+                        status:
+                          type: string
+                        sum:
+                          type: integer
+                        already_paid:
+                          type: integer
+  /api/auth/signin:
+    post:
+      summary: "Authenticate user"
+      operationId: "authUser"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JwtResponse'
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+  /api/auth/signup:
+    post:
+      summary: "Register a new user"
+      operationId: "registerUser"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignUpRequest"
+      responses:
+        "201":
+          description: "User CREATED"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtResponse"
+        "400":
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageResponse"
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    Profile:
+      type: object
+      properties:
+        name:
+          type: string
+        username:
+          type: string
+    JwtResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        is_active:
+          type: boolean
+        is_superuser:
+          type: boolean
+        last_login:
+          type: string
+          format: date-time
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        profile:
+          $ref: '#/components/schemas/Profile'
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+    MessageResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    SignUpRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+
+  responses:
+    EmptyResponse:
+      description: Empty response
