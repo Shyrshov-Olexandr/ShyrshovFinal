@@ -1,9 +1,6 @@
-package internfinalproject.Filter;
+package shyrshovfinal.Filter;
 
-import internfinalproject.models.Group;
-import internfinalproject.models.User;
-
-import java.util.Date;
+import shyrshovfinal.models.User;
 
 public class PaidFilter {
     private Long id;

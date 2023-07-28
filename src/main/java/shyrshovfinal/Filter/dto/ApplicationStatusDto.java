@@ -1,4 +1,4 @@
-package internfinalproject.Filter.dto;
+package shyrshovfinal.Filter.dto;
 
 public class ApplicationStatusDto {
     private int TotalCount;

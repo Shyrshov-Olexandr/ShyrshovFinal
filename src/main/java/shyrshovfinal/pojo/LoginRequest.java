@@ -1,4 +1,4 @@
-package internfinalproject.pojo;
+package shyrshovfinal.pojo;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

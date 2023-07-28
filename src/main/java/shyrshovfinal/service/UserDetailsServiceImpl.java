@@ -1,17 +1,12 @@
-package internfinalproject.service;
+package shyrshovfinal.service;
 
-import internfinalproject.models.User;
-import internfinalproject.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import shyrshovfinal.models.User;
+import shyrshovfinal.repository.UserRepository;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Optional;
 
 @ComponentScan
 @Service

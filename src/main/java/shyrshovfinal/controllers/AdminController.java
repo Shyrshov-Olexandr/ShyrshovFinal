@@ -1,13 +1,13 @@
-package internfinalproject.controllers;
+package shyrshovfinal.controllers;
 
-import internfinalproject.Filter.dto.ApplicationStatusDto;
-import internfinalproject.jwt.JwtUtils;
-import internfinalproject.models.*;
-import internfinalproject.pojo.ActivateUser;
-import internfinalproject.pojo.MessageResponse;
-import internfinalproject.pojo.SignUpRequest;
-import internfinalproject.repository.*;
-import internfinalproject.service.UserDetailsImpl;
+import shyrshovfinal.Filter.dto.ApplicationStatusDto;
+import shyrshovfinal.jwt.JwtUtils;
+import shyrshovfinal.models.*;
+import shyrshovfinal.pojo.ActivateUser;
+import shyrshovfinal.pojo.MessageResponse;
+import shyrshovfinal.pojo.SignUpRequest;
+import shyrshovfinal.repository.*;
+import shyrshovfinal.service.UserDetailsImpl;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,8 +25,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;

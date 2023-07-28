@@ -1,19 +1,11 @@
-package internfinalproject.pojo;
+package shyrshovfinal.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import internfinalproject.models.AccessToken;
-import internfinalproject.models.Profile;
-import internfinalproject.models.RefreshToken;
-import internfinalproject.models.User;
-import internfinalproject.repository.AccessTokenRepository;
-import internfinalproject.repository.RefreshTokenRepository;
-import internfinalproject.repository.UserRepository;
+import shyrshovfinal.models.Profile;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.beans.BeanUtils;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
+
 @JsonIgnoreProperties(value = {"role"}, allowGetters = true)
 @Schema(description = "JWT response")
 public class JwtResponse {

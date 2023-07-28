@@ -1,7 +1,7 @@
-package internfinalproject.repository;
+package shyrshovfinal.repository;
 
-import internfinalproject.models.AccessToken;
-import internfinalproject.models.User;
+import shyrshovfinal.models.AccessToken;
+import shyrshovfinal.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

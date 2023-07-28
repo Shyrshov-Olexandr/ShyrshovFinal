@@ -1,21 +1,20 @@
-package internfinalproject.controllers;
+package shyrshovfinal.controllers;
 
-import internfinalproject.jwt.JwtUtils;
-import internfinalproject.models.*;
-import internfinalproject.pojo.JwtResponse;
-import internfinalproject.pojo.LoginRequest;
-import internfinalproject.pojo.MessageResponse;
-import internfinalproject.repository.AccessTokenRepository;
-import internfinalproject.repository.ProfileRepository;
-import internfinalproject.repository.RefreshTokenRepository;
-import internfinalproject.repository.UserRepository;
+import shyrshovfinal.jwt.JwtUtils;
+import shyrshovfinal.models.*;
+import shyrshovfinal.pojo.JwtResponse;
+import shyrshovfinal.pojo.LoginRequest;
+import shyrshovfinal.repository.AccessTokenRepository;
+import shyrshovfinal.repository.ProfileRepository;
+import shyrshovfinal.repository.RefreshTokenRepository;
+import shyrshovfinal.repository.UserRepository;
 import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,21 +24,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Optional;
-
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Api(value = "Reg && auth controller")
 @RestController

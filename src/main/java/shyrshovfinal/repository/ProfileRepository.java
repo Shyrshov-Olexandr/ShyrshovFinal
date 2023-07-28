@@ -1,6 +1,6 @@
-package internfinalproject.repository;
+package shyrshovfinal.repository;
 
-import internfinalproject.models.Profile;
+import shyrshovfinal.models.Profile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
-package internfinalproject.service;
+package shyrshovfinal.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import internfinalproject.models.Profile;
-import internfinalproject.models.User;
+import shyrshovfinal.models.Profile;
+import shyrshovfinal.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

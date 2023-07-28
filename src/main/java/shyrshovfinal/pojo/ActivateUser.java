@@ -1,4 +1,4 @@
-package internfinalproject.pojo;
+package shyrshovfinal.pojo;
 
 public class ActivateUser {
     private String password;

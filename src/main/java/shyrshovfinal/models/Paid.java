@@ -1,4 +1,4 @@
-package internfinalproject.models;
+package shyrshovfinal.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -9,8 +9,8 @@ import java.util.Objects;
 
 @Entity
 public class Paid {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "course")

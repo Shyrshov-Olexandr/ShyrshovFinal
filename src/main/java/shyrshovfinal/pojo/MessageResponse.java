@@ -1,4 +1,4 @@
-package internfinalproject.pojo;
+package shyrshovfinal.pojo;
 
 public class MessageResponse {
     private String message;

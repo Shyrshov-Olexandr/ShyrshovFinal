@@ -1,4 +1,4 @@
-package internfinalproject.models;
+package shyrshovfinal.models;
 
 import javax.persistence.*;
 import java.util.Collection;

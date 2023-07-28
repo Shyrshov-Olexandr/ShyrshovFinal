@@ -1,18 +1,19 @@
-package internfinalproject.models;
+package shyrshovfinal.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Comment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String comment;
     private LocalDate created_at;
     @OneToOne
+
     @JoinColumn(name = "user_id")
     private User user;
     @JsonIgnore

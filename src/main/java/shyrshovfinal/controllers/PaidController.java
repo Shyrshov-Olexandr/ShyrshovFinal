@@ -1,13 +1,13 @@
-package internfinalproject.controllers;
+package shyrshovfinal.controllers;
 
-import internfinalproject.Filter.PaidFilter;
-import internfinalproject.models.*;
-import internfinalproject.pojo.MessageResponse;
-import internfinalproject.repository.CommentRepository;
-import internfinalproject.repository.GroupRepository;
-import internfinalproject.repository.PaidRepository;
-import internfinalproject.repository.UserRepository;
-import internfinalproject.service.UserDetailsImpl;
+import shyrshovfinal.Filter.PaidFilter;
+import shyrshovfinal.models.*;
+import shyrshovfinal.pojo.MessageResponse;
+import shyrshovfinal.repository.CommentRepository;
+import shyrshovfinal.repository.GroupRepository;
+import shyrshovfinal.repository.PaidRepository;
+import shyrshovfinal.repository.UserRepository;
+import shyrshovfinal.service.UserDetailsImpl;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -48,7 +48,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -101,7 +100,7 @@ public class PaidController {
                                         @RequestParam(required = false) String order,
                                         @RequestParam(required = false) String My,
                                         @Parameter(hidden = true) @ModelAttribute PaidFilter filter, Authentication authentication, @Parameter(hidden = true) @AuthenticationPrincipal UserDetailsImpl user) throws IOException {
-        int pageSize = 50;
+        int pageSize = 25;
         if (order == null) {
             order = "id";
         }

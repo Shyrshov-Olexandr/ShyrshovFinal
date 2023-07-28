@@ -1,4 +1,4 @@
-package internfinalproject.models;
+package shyrshovfinal.models;
 
 public enum ERole {
 }

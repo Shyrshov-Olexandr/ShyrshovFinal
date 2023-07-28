@@ -1,11 +1,12 @@
-package internfinalproject.models;
+package shyrshovfinal.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
-import java.util.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "auth_user")

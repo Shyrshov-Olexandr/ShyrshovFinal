@@ -1,6 +1,4 @@
-package internfinalproject.Filter.dto;
-
-import internfinalproject.models.Group;
+package shyrshovfinal.Filter.dto;
 
 public class PaidDto {
     private String course;

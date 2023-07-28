@@ -1,4 +1,4 @@
-package internfinalproject.jwt;
+package shyrshovfinal.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
