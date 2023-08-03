@@ -9,7 +9,7 @@ The frontend of the project was implemented using React and can be accessed at: 
 To run the project, Java version 1.8 or higher is required.
 
 ## Documentation and Testing
-Postman collection for testing: [Collection Link] (https://api.postman.com/collections/27850768-845c8a95-acd0-47e0-bb02-febd2a25e9dd?access_key=PMAT-01H6X9V52QQHREC96CMWPVZMC4)
+Postman collection for testing: [Collection Link](https://api.postman.com/collections/27850768-845c8a95-acd0-47e0-bb02-febd2a25e9dd?access_key=PMAT-01H6X9V52QQHREC96CMWPVZMC4)
 
 ## Superuser Credentials
 Email: admin@gmail.com
