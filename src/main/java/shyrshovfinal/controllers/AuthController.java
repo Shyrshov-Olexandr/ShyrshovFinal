@@ -4,6 +4,7 @@ import shyrshovfinal.jwt.JwtUtils;
 import shyrshovfinal.models.*;
 import shyrshovfinal.pojo.JwtResponse;
 import shyrshovfinal.pojo.LoginRequest;
+import shyrshovfinal.pojo.MessageResponse;
 import shyrshovfinal.repository.AccessTokenRepository;
 import shyrshovfinal.repository.ProfileRepository;
 import shyrshovfinal.repository.RefreshTokenRepository;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Optional;
 
 @Api(value = "Reg && auth controller")
 @RestController
@@ -75,9 +77,12 @@ public class AuthController {
         if (!isEmailValid) {
             return ResponseEntity.badRequest().body("Invalid email or password"); // возвращаем ошибку, если почта неверна
         }
-        User byEmail = userRepository.findByEmail(email).orElseThrow(SecurityException::new);
-
-        if (byEmail.isIs_blocked()){
+        //User byEmail = userRepository.findByEmail(email).orElseThrow(SecurityException::new);
+        Optional<User> byEmail = userRepository.findByEmail(email);
+        if (!byEmail.isPresent()) {
+            return new ResponseEntity<>(new MessageResponse("User not found"), HttpStatus.NOT_FOUND);
+        }
+        if (byEmail.get().isIs_blocked()){
             User byEmail1 = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(SecurityException::new);
             return new ResponseEntity<>(byEmail1,HttpStatus.OK);
         }
@@ -91,9 +96,11 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            User user = userRepository.findByEmail(email)
-                    .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
-
+            Optional<User> user1 = userRepository.findByEmail(email);
+                    if (!user1.isPresent()){
+                        return new ResponseEntity<>(new MessageResponse("User not found with email: " + email), HttpStatus.NOT_FOUND);
+                    }
+            User user = user1.get();
             user.setLast_login(new Date());
             user.setIs_blocked(false);
             userRepository.save(user);
