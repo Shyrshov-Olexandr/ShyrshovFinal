@@ -419,7 +419,7 @@ public class AdminController {
             return new ResponseEntity<>(new MessageResponse("User not found"), HttpStatus.NOT_FOUND);
         }
         if (userDetails.getId() == byId.get().getId()) {
-            return new ResponseEntity<>(new MessageResponse("you cant delete yourself"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new MessageResponse("You cant delete yourself"), HttpStatus.BAD_REQUEST);
         }
         User user = byId.get();
         List<AccessToken> allByUserId = accessTokenRepository.findAllByUserId(user.getId());
@@ -427,7 +427,7 @@ public class AdminController {
         List<RefreshToken> allByUserId1 = refreshTokenRepository.findAllByUserId(user.getId());
         refreshTokenRepository.deleteAll(allByUserId1);
         userRepository.delete(user);
-        return new ResponseEntity<>(new MessageResponse("user deleted"), HttpStatus.OK);
+        return new ResponseEntity<>(new MessageResponse("User deleted"), HttpStatus.OK);
     }
 }
 

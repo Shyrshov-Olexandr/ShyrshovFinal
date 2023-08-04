@@ -533,7 +533,7 @@ public class PaidController {
             return new ResponseEntity<>(new MessageResponse("User not found"), HttpStatus.NOT_FOUND);
         }
         Paid paid = paidRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("paid not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Paid not found"));
         Object principal = authentication.getPrincipal();
 
 

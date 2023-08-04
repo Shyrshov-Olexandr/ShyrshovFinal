@@ -73,7 +73,7 @@ public class AuthController {
         String password = loginRequest.getPassword();
         boolean isEmailValid = EmailValidator.getInstance().isValid(email); // проверяем валидность почты
         if (!isEmailValid) {
-            return ResponseEntity.badRequest().body("Invalid email"); // возвращаем ошибку, если почта неверна
+            return ResponseEntity.badRequest().body("Invalid email or password"); // возвращаем ошибку, если почта неверна
         }
         User byEmail = userRepository.findByEmail(email).orElseThrow(SecurityException::new);
 
@@ -146,13 +146,13 @@ public class AuthController {
             }
 
 
-            throw new RuntimeException("Something went wrong");
+            throw new RuntimeException("User not found");
         } catch (UsernameNotFoundException e) {
-            return ResponseEntity.badRequest().body("user not found");
+            return ResponseEntity.badRequest().body("User not found");
         } catch (BadCredentialsException e) {
-            return ResponseEntity.badRequest().body("email or password incorrect");
+            return ResponseEntity.badRequest().body("Email or password incorrect");
         } catch (LockedException e) {
-            return ResponseEntity.badRequest().body("user blocked");
+            return ResponseEntity.badRequest().body("User blocked");
         } catch (DisabledException e) {
             return ResponseEntity.badRequest().body(null); // Ошибка: пользователь отключен
         }
@@ -295,6 +295,4 @@ public class AuthController {
             refreshTokenRepository.save(refreshTokenEntity);
         }
     }
-
-
 }
