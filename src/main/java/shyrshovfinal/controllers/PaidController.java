@@ -604,12 +604,12 @@ public class PaidController {
                 }
             }
 
-            if (filter.getGroup() != null) {
+            if (filter != null && filter.getGroup() != null) {
                 Group byName = groupRepository.findByName(filter.getGroup());
                 paid.setGroup(byName);
                 checkUserAndSave(paid, byEmail);
             }
-            if (filter != null && filter.getAge() != null) {
+            if (filter.getAge() != null) {
                 Integer age = filter.getAge();
                 if (age < 16 || age > 100) {
                     return ResponseEntity.badRequest().body("Возраст должен быть между 16 и 100 годами.");
@@ -618,19 +618,19 @@ public class PaidController {
                 checkUserAndSave(paid, byEmail);
             }
 
-            if (filter != null && filter.getCourseFormat() != null) {
+            if (filter.getCourseFormat() != null) {
                 paid.setCourseFormat(filter.getCourseFormat());
                 checkUserAndSave(paid, byEmail);
             }
-            if (filter != null && filter.getCourseType() != null) {
+            if (filter.getCourseType() != null) {
                 paid.setCourseType(filter.getCourseType());
                 checkUserAndSave(paid, byEmail);
             }
-            if (filter != null && filter.getSum() != null) {
+            if (filter.getSum() != null) {
                 paid.setSum(filter.getSum());
                 checkUserAndSave(paid, byEmail);
             }
-            if (filter != null && filter.getStatus() != null) {
+            if (filter.getStatus() != null) {
                 if (filter.getStatus().toUpperCase().equals(Status.AGREE.toString())) {
                     paid.setStatus(Status.AGREE);
                 } else if (filter.getStatus().toUpperCase().equals(Status.INWORK.toString())) {
@@ -646,7 +646,7 @@ public class PaidController {
                 }
                 checkUserAndSave(paid, byEmail);
             }
-            if (filter != null && filter.getAlreadyPaid() != null) {
+            if (filter.getAlreadyPaid() != null) {
                 int alreadyPaid = filter.getAlreadyPaid();
                 String alreadyPaidStr = Integer.toString(alreadyPaid);
                 for (int i = 0; i < alreadyPaidStr.length(); i++) {
@@ -659,7 +659,7 @@ public class PaidController {
             }
 
 
-            if (filter != null && filter.getComment() != null) {
+            if (filter.getComment() != null) {
                 LocalDate date = LocalDate.now();
                 Comment comment1 = new Comment();
                 comment1.setComment(filter.getComment());
@@ -674,7 +674,7 @@ public class PaidController {
                 paid.setUser(null);
             }
             paidRepository.save(paid);
-            return new ResponseEntity(paid, HttpStatus.OK);
+            return new ResponseEntity<>(paid, HttpStatus.OK);
         }
         return null;
     }

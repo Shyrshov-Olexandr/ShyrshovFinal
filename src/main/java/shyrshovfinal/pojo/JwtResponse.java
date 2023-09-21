@@ -42,23 +42,23 @@ public class JwtResponse {
     private String refresh_token;
 
 
-//    public JwtResponse(Long id, String email, boolean is_active, boolean is_superuser, Date last_login, Date created, Date updated, Profile profile, String access_token, String refresh_token) {
-//        this.id = id;
-//        this.email = email;
-//        this.is_active = is_active;
-//        this.is_superuser = is_superuser;
-//        this.last_login = last_login;
-//        this.created = created;
-//        this.updated = updated;
-//        this.profile = profile;
-//        this.access_token = access_token;
-//        this.refresh_token = refresh_token;
-//    }
+    public JwtResponse(Long id, String email, boolean is_active, boolean is_superuser, Date last_login, Date created, Date updated, Profile profile, String access_token, String refresh_token) {
+        this.id = id;
+        this.email = email;
+        this.is_active = is_active;
+        this.is_superuser = is_superuser;
+        this.last_login = last_login;
+        this.created = created;
+        this.updated = updated;
+        this.profile = profile;
+        this.access_token = access_token;
+        this.refresh_token = refresh_token;
+    }
 
-//    public JwtResponse(String access_token, String refresh_token) {
-//        this.access_token = access_token;
-//        this.refresh_token = refresh_token;
-//    }
+    public JwtResponse(String access_token, String refresh_token) {
+        this.access_token = access_token;
+        this.refresh_token = refresh_token;
+    }
 
     public JwtResponse(Long id, String access_token, String refresh_token) {
         this.id = id;
